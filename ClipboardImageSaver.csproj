@@ -1,0 +1,22 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <!-- 目标框架（Windows 专用） -->
+    <TargetFramework>net6.0-windows</TargetFramework>
+    <!-- 使用 Windows Forms -->
+    <UseWindowsForms>true</UseWindowsForms>
+    <!-- 输出为 Windows 应用程序（无控制台窗口） -->
+    <OutputType>WinExe</OutputType>
+    <!-- 应用程序图标（可选） -->
+    <!-- <ApplicationIcon>app.ico</ApplicationIcon> -->
+    <!-- 单文件发布 -->
+    <PublishSingleFile>true</PublishSingleFile>
+    <SelfContained>false</SelfContained>
+    <RuntimeIdentifier>win-x64</RuntimeIdentifier>
+    <PublishReadyToRun>true</PublishReadyToRun>
+    <AssemblyTitle>ClipboardImageSaver</AssemblyTitle>
+    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+    <FileVersion>1.0.0.0</FileVersion>
+  </PropertyGroup>
+
+</Project>
