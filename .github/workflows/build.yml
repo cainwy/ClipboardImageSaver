@@ -1,0 +1,33 @@
+name: Build and Release
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch:   # 允许手动触发
+
+jobs:
+  build:
+    runs-on: windows-latest   # 必须用 Windows，因为依赖 WinForms
+
+    steps:
+    - name: 签出代码
+      uses: actions/checkout@v4
+
+    - name: 安装 .NET SDK
+      uses: actions/setup-dotnet@v4
+      with:
+        dotnet-version: '6.0.x'
+
+    - name: 还原依赖
+      run: dotnet restore
+
+    - name: 编译并发布（单文件）
+      run: dotnet publish -c Release -r win-x64 --self-contained false -p:PublishSingleFile=true -o ./publish
+
+    - name: 上传构建产物
+      uses: actions/upload-artifact@v4
+      with:
+        name: ClipboardImageSaver
+        path: ./publish/ClipboardImageSaver.exe
